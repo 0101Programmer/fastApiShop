@@ -17,7 +17,6 @@ async def reg_and_auth_page(request: Request):
 @reg_and_auth_route.post("/reg_post")
 async def reg_post(name=Form(), email=Form(), password=Form(), repeat_password=Form(),
                    birthdate=Form()):
-
     is_existed_email = await User.get_or_none(email=email)
 
     if password != repeat_password:
@@ -34,6 +33,17 @@ async def reg_post(name=Form(), email=Form(), password=Form(), repeat_password=F
     return RedirectResponse(f'/home_by_id/{new_created_user.id}')
 
 
-@reg_and_auth_route.post("/log_post", response_class=HTMLResponse)
-async def log_post(request: Request):
-    return templates.TemplateResponse("reg_and_auth_page.html", {"request": request})
+@reg_and_auth_route.post("/log_post")
+async def log_post(email=Form(), password=Form()):
+    is_existed_email = await User.get_or_none(email=email)
+    is_valid_password = await User.get_or_none(email=email, password=password)
+
+    if not is_existed_email:
+        return {f"Ошибка": "пользователь с таким email не зарегистрирован"}
+    if not is_valid_password:
+        return {f"Ошибка": "неправильный пароль"}
+
+    authed_user = await User.get(email=email)
+    await authed_user.save()
+    return RedirectResponse(f'/home_by_id/{authed_user.id}')
+
