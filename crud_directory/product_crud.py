@@ -5,8 +5,14 @@ from db_directory.db_models import Product
 product_crud_rout = APIRouter()
 
 
-@product_crud_rout.get("/get_product/")
-async def get_product(product_id: int):
+@product_crud_rout.get("/get_all_products/")
+async def get_all_products():
+    products_to_show = await Product.all()
+    return {"here they are": f'{products_to_show}'}
+
+
+@product_crud_rout.get("/get_product_by_id/")
+async def get_product_by_id(product_id: int):
     product_to_show = await Product.get(id=product_id)
     return {"here it is": f'{product_to_show}'}
 
@@ -30,8 +36,16 @@ async def update_product(product_id: int = Form(), name: str = Form(), descripti
     return {"message": 'product updated'}
 
 
-@product_crud_rout.delete("/del_product/")
-async def del_product(product_id: int = Form()):
+@product_crud_rout.delete("/del_product_by_id/")
+async def del_product_by_id(product_id: int):
     product_to_del = await Product.get(id=product_id)
     await product_to_del.delete()
     return {"message": 'product deleted'}
+
+
+@product_crud_rout.delete("/del_all_products/")
+async def del_all_products():
+    products_to_del = await Product.all()
+    for product in products_to_del:
+        await product.delete()
+    return {"message": 'all products were deleted'}

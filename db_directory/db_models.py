@@ -15,6 +15,9 @@ class User(Model):
     def __str__(self):
         return f'User id: {self.id}, user name: {self.name}'
 
+    def __repr__(self):
+        return f'User id: {self.id}, user name: {self.name}'
+
 
 class Product(Model):
     id = tortoise.fields.IntField(pk=True)
@@ -25,4 +28,7 @@ class Product(Model):
     img_path = tortoise.fields.CharField(max_length=200)
 
     def __str__(self):
+        return f'Product id: {self.id}, product name: {self.name}'
+
+    def __repr__(self):
         return f'Product id: {self.id}, product name: {self.name}'
