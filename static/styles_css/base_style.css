@@ -1,0 +1,64 @@
+/* Общие стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  height: 100%;
+}
+
+/* Структура страницы с помощью Flexbox */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  background-color: #007bff;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.page-header {
+  background-color: #eaeaea;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.block-1,
+.block-2 {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.page-footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}

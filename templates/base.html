@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Panda Shop{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='styles_css/base_style.css') }}">
+  <link href="/static/media/icons/favicon.ico" rel="icon" type="image/x-icon">
 </head>
 <body>
+  {% block navbar %}
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <img src="https://img.icons8.com/?size=100&id=icaN75Fl2Ka2&format=png&color=000000" width="30" height="30" style="margin:-4px;" alt="Логотип">
+      </a>
+      <a href="#">Главная</a>
+      <a href="#">О нас</a>
+      <a href="#">Услуги</a>
+      <a href="#">Контакты</a>
+    </nav>
+  {% endblock %}
 
+  <header class="page-header">
+    {% block header %}
+      <h1>Базовая страница</h1>
+    {% endblock %}
+  </header>
+
+  <main class="content">
+    {% block content %}
+      <p>Базовый контент.</p>
+    {% endblock %}
+  </main>
+
+  <footer class="page-footer">
+    <p>&copy; 2024 Panda Shop. Все права защищены.</p>
+  </footer>
 </body>
 </html>
