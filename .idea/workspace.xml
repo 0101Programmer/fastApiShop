@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Добавлена директория с CRUD запросами для каждой из созданных моделей">
+    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="В CRUD запросы добавлена возможность посмотреть все записи из таблиц или удалить все записи из таблиц">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud_directory/product_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_directory/product_crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud_directory/user_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_directory/user_crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_directory/db_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_directory/db_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages_directory/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/home_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,14 +37,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.db_schemas_creation.executor": "Run",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/vavan/PythonProjectsUrban/pet_projects/fastApiSneakersShopPetProject"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.db_schemas_creation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vavan/PythonProjectsUrban/pet_projects/fastApiSneakersShopPetProject&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\crud_directory" />
@@ -52,7 +55,7 @@
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.db_schemas_creation">
+  <component name="RunManager" selected="Python.main">
     <configuration name="db_schemas_creation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fastApiSneakersShopPetProject" />
       <option name="ENV_FILES" value="" />
@@ -143,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735464359280</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="В CRUD запросы добавлена возможность посмотреть все записи из таблиц или удалить все записи из таблиц">
+      <option name="closed" value="true" />
+      <created>1735466029869</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735466029869</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +172,7 @@
     <MESSAGE value="Создано подключение к БД через tortoise, а также добавлена директория для создания страниц сайта" />
     <MESSAGE value="Добавлена стилизация и оформление" />
     <MESSAGE value="Добавлена директория с CRUD запросами для каждой из созданных моделей" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлена директория с CRUD запросами для каждой из созданных моделей" />
+    <MESSAGE value="В CRUD запросы добавлена возможность посмотреть все записи из таблиц или удалить все записи из таблиц" />
+    <option name="LAST_COMMIT_MESSAGE" value="В CRUD запросы добавлена возможность посмотреть все записи из таблиц или удалить все записи из таблиц" />
   </component>
 </project>

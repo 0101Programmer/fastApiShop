@@ -5,7 +5,7 @@ import tortoise.fields
 class User(Model):
     id = tortoise.fields.IntField(pk=True)
     name = tortoise.fields.CharField(max_length=100)
-    email = tortoise.fields.CharField(max_length=100)
+    email = tortoise.fields.CharField(unique=True, max_length=100)
     password = tortoise.fields.CharField(max_length=100)
     birthdate = tortoise.fields.DateField()
     orders = tortoise.fields.JSONField(null=True)
