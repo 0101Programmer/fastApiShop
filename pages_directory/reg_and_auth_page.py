@@ -2,6 +2,7 @@ from fastapi import APIRouter, Form
 from fastapi import Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
+
 from db_directory.db_models import User
 from pages_directory.tools_for_pages import is_adult
 
@@ -15,7 +16,7 @@ async def reg_and_auth_page(request: Request):
 
 
 @reg_and_auth_route.post("/reg_post")
-async def reg_post(name=Form(), email=Form(), password=Form(), repeat_password=Form(),
+async def reg_post(request: Request, name=Form(), email=Form(), password=Form(), repeat_password=Form(),
                    birthdate=Form()):
     is_existed_email = await User.get_or_none(email=email)
 
@@ -26,7 +27,10 @@ async def reg_post(name=Form(), email=Form(), password=Form(), repeat_password=F
     elif is_existed_email:
         return {f"Ошибка": "пользователь с таким email уже зарегистрирован"}
 
-    user = User(name=name, email=email, password=password, birthdate=birthdate)
+    session_mgr = request.state.session
+    session_id = session_mgr.get_session_id()
+
+    user = User(name=name, email=email, password=password, birthdate=birthdate, session_id=session_id)
     await user.save()
 
     new_created_user = await User.get(email=email)
@@ -34,7 +38,7 @@ async def reg_post(name=Form(), email=Form(), password=Form(), repeat_password=F
 
 
 @reg_and_auth_route.post("/log_post")
-async def log_post(email=Form(), password=Form()):
+async def log_post(request: Request, email=Form(), password=Form()):
     is_existed_email = await User.get_or_none(email=email)
     is_valid_password = await User.get_or_none(email=email, password=password)
 
@@ -43,7 +47,12 @@ async def log_post(email=Form(), password=Form()):
     if not is_valid_password:
         return {f"Ошибка": "неправильный пароль"}
 
+    session_mgr = request.state.session
+    session_id = session_mgr.get_session_id()
+
     authed_user = await User.get(email=email)
+    authed_user.session_id = session_id
     await authed_user.save()
+
     return RedirectResponse(f'/home_by_id/{authed_user.id}')
 

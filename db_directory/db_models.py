@@ -9,6 +9,7 @@ class User(Model):
     password = tortoise.fields.CharField(max_length=100)
     birthdate = tortoise.fields.DateField()
     orders = tortoise.fields.JSONField(null=True)
+    session_id = tortoise.fields.CharField(null=True, max_length=200)
     created_at = tortoise.fields.DatetimeField(auto_now_add=True)
     updated_at = tortoise.fields.DatetimeField(auto_now=True)
 
