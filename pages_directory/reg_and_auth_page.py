@@ -27,14 +27,13 @@ async def reg_post(request: Request, name=Form(), email=Form(), password=Form(),
     elif is_existed_email:
         return {f"Ошибка": "пользователь с таким email уже зарегистрирован"}
 
-    session_mgr = request.state.session
-    session_id = session_mgr.get_session_id()
+    session_id = f'{hash(email)}{email}{hash(name)}'
 
     user = User(name=name, email=email, password=password, birthdate=birthdate, session_id=session_id)
     await user.save()
 
     new_created_user = await User.get(email=email)
-    return RedirectResponse(f'/home_by_id/{new_created_user.id}')
+    return RedirectResponse(f'/home_by_id/{session_id}/{new_created_user.id}')
 
 
 @reg_and_auth_route.post("/log_post")
@@ -47,12 +46,10 @@ async def log_post(request: Request, email=Form(), password=Form()):
     if not is_valid_password:
         return {f"Ошибка": "неправильный пароль"}
 
-    session_mgr = request.state.session
-    session_id = session_mgr.get_session_id()
-
     authed_user = await User.get(email=email)
+    session_id = f'{hash(authed_user.email)}{authed_user.email}{hash(authed_user.name)}'
     authed_user.session_id = session_id
     await authed_user.save()
 
-    return RedirectResponse(f'/home_by_id/{authed_user.id}')
+    return RedirectResponse(f'/home_by_id/{session_id}/{authed_user.id}')
 

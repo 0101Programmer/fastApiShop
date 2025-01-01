@@ -14,33 +14,25 @@ async def home(request: Request):
     return templates.TemplateResponse("home_page.html", {"request": request})
 
 
-@home_route.post("/home_by_id/{user_id}", response_class=HTMLResponse)
-async def home_by_id_post(request: Request, user_id: int):
-    session_mgr = request.state.session
-    session_id = session_mgr.get_session_id()
+@home_route.post("/home_by_id/{session_id}/{user_id}", response_class=HTMLResponse)
+async def home_by_id_post(request: Request, session_id: str, user_id: int):
 
-    user_for_check = await User.get_or_none(id=user_id)
-    if user_for_check:
-        if session_id != user_for_check.session_id:
-            raise HTTPException(403, 'Доступ запрещён')
-    else:
+    user_for_check = await User.get_or_none(id=user_id, session_id=session_id)
+    if not user_for_check:
         raise HTTPException(403, 'Доступ запрещён')
 
     return templates.TemplateResponse("home_page.html", {"request": request,
+                                                         "session_id": session_id,
                                                          "user_id": user_id})
 
 
-@home_route.get("/home_by_id/{user_id}", response_class=HTMLResponse)
-async def home_by_id_get(request: Request, user_id: int):
-    session_mgr = request.state.session
-    session_id = session_mgr.get_session_id()
+@home_route.get("/home_by_id/{session_id}/{user_id}", response_class=HTMLResponse)
+async def home_by_id_get(request: Request, session_id: str, user_id: int):
 
-    user_for_check = await User.get_or_none(id=user_id)
-    if user_for_check:
-        if session_id != user_for_check.session_id:
-            raise HTTPException(403, 'Доступ запрещён')
-    else:
+    user_for_check = await User.get_or_none(id=user_id, session_id=session_id)
+    if not user_for_check:
         raise HTTPException(403, 'Доступ запрещён')
 
     return templates.TemplateResponse("home_page.html", {"request": request,
+                                                         "session_id": session_id,
                                                          "user_id": user_id})

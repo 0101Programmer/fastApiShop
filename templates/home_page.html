@@ -8,6 +8,18 @@
   <a href="#">Главная</a>
   <a href="#">О нас</a>
   <a href="#">Каталог</a>
-  <a href="/reg_and_auth_page">Личный кабинет</a>
+  {% if user_id %}
+  <a href="/personal_account/{{ session_id }}/{{ user_id }}">Личный кабинет</a>
+  {% else %}
+  <a href="/reg_and_auth_page">Регистрация и авторизация</a>
+  {% endif %}
 </nav>
+{% endblock %}
+
+{% block header %}
+<h1>Главная страница</h1>
+{% endblock %}
+
+{% block content %}
+<p>Базовый контент</p>
 {% endblock %}

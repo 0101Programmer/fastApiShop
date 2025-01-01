@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar">
+    <a href="#" class="logo">
+        <img src="https://img.icons8.com/?size=100&id=icaN75Fl2Ka2&format=png&color=000000" width="30" height="30" style="margin:-4px;" alt="Логотип">
+    </a>
+    <a href="/home_by_id/{{ session_id }}/{{ user_id }}">Главная</a>
+    <a href="/personal_account/{{ session_id }}/{{ user_id }}">Личный кабинет</a>
+    <a href="#">Изменение данных</a>
+</nav>
+{% endblock %}
+
+{% block header %}
+<h1>Изменение персональных данных</h1>
+{% endblock %}
+
+{% block content %}
+<form action="user_data_changing_post" method="post">
+    <p><strong>Пожалуйста, заполните все обязательные поля</strong></p>
+    {% if data_to_change == "name" %}
+    <p>
+        Имя:<br>
+        {{ user_data.name }}
+    </p>
+    <p>
+        Новое значение:<br>
+        <input name="new_name" type="text" required />
+    </p>
+    {% elif data_to_change == "email" %}
+    <p>
+        Email:<br>
+        {{ user_data.email }}
+    </p>
+    <p>
+        Новое значение:<br>
+        <input name="new_email" type="email" required />
+    </p>
+    {% elif data_to_change == "password" %}
+    <p>
+        Пароль:<br>
+        {{ user_data.password }}
+    </p>
+    <p>
+        Новое значение:<br>
+        <input name="new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}" title="Пароль должен содержать минимум 8 символов, включая одну цифру, одну заглавную букву, одну строчную букву и один специальный символ." type="password" required />
+    </p>
+    <p>
+        Повторите пароль:<br>
+        <input name="new_password_repeat" type="password" required />
+    </p>
+    {% endif %}
+    <input type="submit" value="Изменить данные" />
+</form>
+{% endblock %}
+
