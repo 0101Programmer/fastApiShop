@@ -21,7 +21,7 @@
     {% if data_to_change == "name" %}
     <p>
         Имя:<br>
-        {{ user_data.name }}
+        <em>{{ user_data.name }}</em>
     </p>
     <p>
         Новое значение:<br>
@@ -30,7 +30,7 @@
     {% elif data_to_change == "email" %}
     <p>
         Email:<br>
-        {{ user_data.email }}
+        <em>{{ user_data.email }}</em>
     </p>
     <p>
         Новое значение:<br>
@@ -39,7 +39,7 @@
     {% elif data_to_change == "password" %}
     <p>
         Пароль:<br>
-        {{ user_data.password }}
+        <em>{{ user_data.password }}</em>
     </p>
     <p>
         Новое значение:<br>

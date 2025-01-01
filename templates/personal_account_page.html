@@ -34,10 +34,10 @@
         <tr>
             <td>{{ user_data.name }}</td>
             <td>{{ user_data.email }}</td>
-            <td><a href="#">Изменить или посмотреть пароль</a></td>
+            <td><a href="/user_data_changing/{{ session_id }}/{{ user_id }}/password">Изменить или посмотреть пароль</a></td>
             <td>{{ user_data.birthdate }}</td>
             {% if user_data.orders %}
-            <td><td><a href="#">Изменить или посмотреть заказы</a></td></td>
+            <td><a href="#">Изменить или посмотреть заказы</a></td>
             {% endif %}
         </tr>
     </tbody>
@@ -56,5 +56,9 @@
         <a href="/user_data_changing/{{ session_id }}/{{ user_id }}/password">Пароль</a>
     </div>
 </div>
+
+<form action="/logout/{{ session_id }}/{{ user_id }}" method="post">
+    <button type="submit" class="dropbtn">Выйти из аккаунта</button>
+</form>
 
 {% endblock %}

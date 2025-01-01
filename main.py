@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from tortoise.contrib.fastapi import register_tortoise
 from crud_directory.product_crud import product_crud_rout
@@ -8,21 +8,10 @@ from pages_directory.catalog_page import catalog_route
 from pages_directory.home_page import home_route
 from pages_directory.personal_account_page import personal_account_route
 from pages_directory.reg_and_auth_page import reg_and_auth_route
-from fastsession import FastSessionMiddleware, MemoryStore
-
 from pages_directory.user_data_changing_page import user_data_changing_route
 
 app = FastAPI(swagger_ui_parameters={"tryItOutEnabled": True}, debug=True)
 app.mount("/static", StaticFiles(directory="static"), name="static")
-app.add_middleware(FastSessionMiddleware,
-                   secret_key="my-secret-key",
-                   store=MemoryStore(),
-                   http_only=True,
-                   secure=False,
-                   max_age=0,
-                   session_cookie="sid",
-                   session_object="session"
-                   )
 
 app.include_router(home_route)
 app.include_router(catalog_route)

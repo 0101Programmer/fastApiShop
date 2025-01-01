@@ -24,8 +24,7 @@ async def user_data_changing_get(request: Request, session_id: str, user_id: int
 
 
 @user_data_changing_route.post("/user_data_changing/{session_id}/{user_id}/{data_to_change}", response_class=HTMLResponse)
-async def user_data_changing_post(request: Request, session_id: str, user_id: int, data_to_change: str,
-                                  new_name: str = Form(None), new_email: str = Form(None), new_password: str = Form(None), new_repeat_password: str = Form(None)):
+async def user_data_changing_post(session_id: str, user_id: int, new_name: str = Form(None), new_email: str = Form(None), new_password: str = Form(None), new_repeat_password: str = Form(None)):
 
     user_for_check = await User.get_or_none(id=user_id, session_id=session_id)
     if not user_for_check:

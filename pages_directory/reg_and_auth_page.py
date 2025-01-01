@@ -16,14 +16,14 @@ async def reg_and_auth_page(request: Request):
 
 
 @reg_and_auth_route.post("/reg_post")
-async def reg_post(request: Request, name=Form(), email=Form(), password=Form(), repeat_password=Form(),
+async def reg_post(name=Form(), email=Form(), password=Form(), repeat_password=Form(),
                    birthdate=Form()):
     is_existed_email = await User.get_or_none(email=email)
 
     if password != repeat_password:
         return {f"Ошибка": "пароли не совпадают"}
     elif not is_adult(birthdate):
-        return {f"Ошибка": "к сожалению вам нет восемнадцати лет или вы ввели некорректную дату"}
+        return {f"Ошибка": "к сожалению, регистрация возможна только с восемнадцати лет (или введённая дата некорректна)"}
     elif is_existed_email:
         return {f"Ошибка": "пользователь с таким email уже зарегистрирован"}
 
@@ -37,7 +37,7 @@ async def reg_post(request: Request, name=Form(), email=Form(), password=Form(),
 
 
 @reg_and_auth_route.post("/log_post")
-async def log_post(request: Request, email=Form(), password=Form()):
+async def log_post(email=Form(), password=Form()):
     is_existed_email = await User.get_or_none(email=email)
     is_valid_password = await User.get_or_none(email=email, password=password)
 
