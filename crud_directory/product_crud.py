@@ -1,4 +1,7 @@
-from fastapi import APIRouter
+import json
+from typing import Dict
+
+from fastapi import APIRouter, Body
 from fastapi import Form
 from db_directory.db_models import Product
 
@@ -18,8 +21,8 @@ async def get_product_by_id(product_id: int):
 
 
 @product_crud_rout.post("/add_product/")
-async def add_product(name: str = Form(), description: str = Form(), price: float = Form(), in_stock: int = Form(), img_path: str = Form()):
-    product = Product(name=name, description=description, price=price, in_stock=in_stock, img_path=img_path)
+async def add_product(name: str = Form(), description: str = Form(), price: float = Form(), in_stock: int = Form(), gender: str = Form(), sizes_in_stock: str = Form(default={"S": 1, "M": 1, "L": 1}), img_path: str = Form()):
+    product = Product(name=name, description=description, price=price, in_stock=in_stock, gender=gender, sizes_in_stock=json.dumps(sizes_in_stock), img_path=img_path)
     await product.save()
     return {"message": 'product added'}
 

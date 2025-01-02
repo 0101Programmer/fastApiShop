@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar">
+    <a href="#" class="logo">
+        <img src="https://img.icons8.com/?size=100&id=icaN75Fl2Ka2&format=png&color=000000" width="30" height="30" style="margin:-4px;" alt="Логотип">
+    </a>
+    {% if user_id %}
+    <a href="/home_by_id/{{ session_id }}/{{ user_id }}">Главная</a>
+    {% else %}
+    <a href="/">Главная</a>
+    {% endif %}
+    <a href="#">Каталог</a>
+</nav>
+{% endblock %}
+
+{% block header %}
+<h1>Каталог</h1>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/catalog_filter_buttons_style.css') }}">
+{% if user_id %}
+<div class="dropdown">
+    <button class="dropbtn">Категории</button>
+    <div class="dropdown-content">
+        <a href="#">Все</a>
+        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/man">Мужские</a>
+        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/woman">Женские</a>
+    </div>
+</div>
+{% else %}
+<div class="dropdown">
+    <button class="dropbtn">Категории</button>
+    <div class="dropdown-content">
+        <a href="#">Все</a>
+        <a href="/catalog_filter_by_gender/man">Мужские</a>
+        <a href="/catalog_filter_by_gender/woman">Женские</a>
+    </div>
+</div>
+{% endif %}
+
+{{ all_products }}
+{% for product in all_products %}
+
+{% endfor %}
+
+{% endblock %}

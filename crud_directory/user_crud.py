@@ -25,7 +25,7 @@ async def add_user(name: str = Form(), email: str = Form(), password: str = Form
 
 
 @user_crud_rout.put("/update_user/")
-async def update_user(user_id: int = Form(), name: str = Form(), email: str = Form(), password: str = Form(), birthdate: str = Form(),):
+async def update_user(user_id: int = Form(), name: str = Form(), email: str = Form(), password: str = Form(), birthdate: str = Form()):
     user = await User.get(id=user_id)
     user.name = name
     user.email = email

@@ -26,6 +26,8 @@ class Product(Model):
     description = tortoise.fields.TextField()
     price = tortoise.fields.FloatField()
     in_stock = tortoise.fields.IntField()
+    gender = tortoise.fields.CharField(max_length=100)
+    sizes_in_stock = tortoise.fields.JSONField()
     img_path = tortoise.fields.CharField(max_length=200)
 
     def __str__(self):

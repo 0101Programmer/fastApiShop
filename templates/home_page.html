@@ -5,12 +5,15 @@
   <a href="#" class="logo">
     <img src="https://img.icons8.com/?size=100&id=icaN75Fl2Ka2&format=png&color=000000" width="30" height="30" style="margin:-4px;" alt="Логотип">
   </a>
+  {% if user_id %}
   <a href="#">Главная</a>
   <a href="#">О нас</a>
-  <a href="#">Каталог</a>
-  {% if user_id %}
+  <a href="/catalog/{session_id}/{user_id}/">Каталог</a>
   <a href="/personal_account/{{ session_id }}/{{ user_id }}">Личный кабинет</a>
   {% else %}
+  <a href="#">Главная</a>
+  <a href="#">О нас</a>
+  <a href="/catalog/">Каталог</a>
   <a href="/reg_and_auth_page">Регистрация и авторизация</a>
   {% endif %}
 </nav>
