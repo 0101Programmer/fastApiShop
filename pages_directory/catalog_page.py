@@ -39,11 +39,11 @@ async def catalog_paginator_get(request: Request, products_per_page: int, page_n
     for i, val in enumerate(split_products_lists):
         available_pages.append(i)
 
-    return templates.TemplateResponse("catalog_page.html", {"request": request,
-                                                            "products_per_page": products_per_page,
-                                                            "page_number": page_number,
-                                                            "available_pages": available_pages,
-                                                            "split_products_lists": split_products_lists, })
+    return templates.TemplateResponse("catalog_paginator_page.html", {"request": request,
+                                                                      "products_per_page": products_per_page,
+                                                                      "page_number": page_number,
+                                                                      "available_pages": available_pages,
+                                                                      "split_products_lists": split_products_lists, })
 
 
 @catalog_route.get("/catalog/{session_id}/{user_id}/", response_class=HTMLResponse)
@@ -59,8 +59,38 @@ async def catalog_by_user_id_get(request: Request, session_id: str, user_id: int
 
 @catalog_route.get("/catalog_filter_by_gender/{gender}/", response_class=HTMLResponse)
 async def catalog_gender_filter_get(request: Request, gender: str):
+    split_products_lists = None
+    products_per_page = 8
+    page_number = 0
+    available_pages = []
+
     filtered_products = await Product.filter(gender=gender)
+    if len(filtered_products) > products_per_page:
+        split_products_lists = nested_lists_maker(filtered_products, products_per_page)
+        for i, val in enumerate(split_products_lists):
+            available_pages.append(i)
 
     return templates.TemplateResponse("catalog_by_gender_page.html", {"request": request,
+                                                                      "split_products_lists": split_products_lists,
+                                                                      "products_per_page": products_per_page,
+                                                                      "available_pages": available_pages,
+                                                                      "page_number": page_number,
                                                                       "gender": gender,
                                                                       "filtered_products": filtered_products, })
+
+
+@catalog_route.get("/catalog/paginator/{products_per_page}/{page_number}/{gender}/", response_class=HTMLResponse)
+async def catalog_paginator_by_gender_get(request: Request, products_per_page: int, page_number: int, gender: str):
+    available_pages = []
+
+    filtered_products = await Product.filter(gender=gender)
+    split_products_lists = nested_lists_maker(filtered_products, products_per_page)
+    for i, val in enumerate(split_products_lists):
+        available_pages.append(i)
+
+    return templates.TemplateResponse("catalog_paginator_by_gender_page.html", {"request": request,
+                                                                                "products_per_page": products_per_page,
+                                                                                "page_number": page_number,
+                                                                                "available_pages": available_pages,
+                                                                                "gender": gender,
+                                                                                "split_products_lists": split_products_lists, })

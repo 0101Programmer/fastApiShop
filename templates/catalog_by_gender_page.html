@@ -21,76 +21,135 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', path='styles_css/catalog_filter_buttons_style.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', path='styles_css/product_card_style_v2.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/flexbox_breaks_style.css') }}">
 
-
-{% if user_id %}
-<div class="dropdown">
-    <button class="dropbtn">Категории</button>
-    <div class="dropdown-content">
-        <a href="/catalog/{session_id}/{user_id}/">Все</a>
-        {% if gender == "male"%}
-        <a href="#">Мужские</a>
-        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/female">Женские</a>
-        {% else %}
-        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/male">Мужские</a>
-        <a href="#">Женские</a>
-        {% endif %}
-    </div>
-</div>
-{% else %}
-<div class="dropdown">
-    <button class="dropbtn">Категории</button>
-    <div class="dropdown-content">
-        <a href="/catalog/">Все</a>
-        {% if gender == "male"%}
-        <a href="#">Мужские</a>
-        <a href="/catalog_filter_by_gender/female">Женские</a>
-        {% else %}
-        <a href="/catalog_filter_by_gender/male">Мужские</a>
-        <a href="#">Женские</a>
-        {% endif %}
-    </div>
-</div>
-{% endif %}
-
-<div class="product-list">
-    {% for product in filtered_products %}
-    <div class="product-card">
-        <div class="product-image">
-            {% if user_id %}
-            <a href="/product_details/{{ session_id }}/{{ user_id }}/{{ product.id }}/">
-                <img src="{{ product.img_path }}" alt="Фотография товара">
-            </a>
+<div class="container">
+    {% if user_id %}
+    <div class="dropdown">
+        <button class="dropbtn">Категории</button>
+        <div class="dropdown-content">
+            <a href="/catalog/{session_id}/{user_id}/">Все</a>
+            {% if gender == "male"%}
+            <a href="#">Мужские</a>
+            <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/female">Женские</a>
             {% else %}
-            <a href="/product_details/{{ product.id }}/">
-                <img src="{{ product.img_path }}" alt="Фотография товара">
-            </a>
-            {% endif %}
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">{{ product.name }}</h3>
-            {% if not product.price_with_discount() %}
-            <p class="price">Цена: {{ product.price }} руб.</p>
-            {% else %}
-            <span class="discount-tag">- {{ product.discount }}%</span>
-            <p class="price">
-                <span class="old-price">Обычная цена: {{ product.price }} руб.</span>
-                <br>
-                <span class="new-price">Цена со скидкой: {{ product.price_with_discount() }} руб.</span>
-            </p>
-            {% endif %}
-            {% if user_id %}
-            <form action="/add_to_cart/{{ session_id }}/{{ user_id }}/{{ product.id }}" method="post">
-                <button type="submit" value="1" class="dropbtn">Добавить в корзину</button>
-            </form>
-            {% else %}
-            <form action="/reg_and_auth_page" method="get">
-                <button type="submit" class="dropbtn">Добавить в корзину</button>
-            </form>
+            <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/male">Мужские</a>
+            <a href="#">Женские</a>
             {% endif %}
         </div>
     </div>
-    {% endfor %}
-</div>
+    {% else %}
+    <div class="dropdown">
+        <button class="dropbtn">Категории</button>
+        <div class="dropdown-content">
+            <a href="/catalog/">Все</a>
+            {% if gender == "male"%}
+            <a href="#">Мужские</a>
+            <a href="/catalog_filter_by_gender/female">Женские</a>
+            {% else %}
+            <a href="/catalog_filter_by_gender/male">Мужские</a>
+            <a href="#">Женские</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
 
+    <div class="item break"></div>
+
+    <div class="product-list">
+        {% if not split_products_lists %}
+            {% for product in filtered_products %}
+            <div class="product-card">
+                <div class="product-image">
+                    {% if user_id %}
+                    <a href="/product_details/{{ session_id }}/{{ user_id }}/{{ product.id }}/">
+                        <img src="{{ product.img_path }}" alt="Фотография товара">
+                    </a>
+                    {% else %}
+                    <a href="/product_details/{{ product.id }}/">
+                        <img src="{{ product.img_path }}" alt="Фотография товара">
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">{{ product.name }}</h3>
+                    {% if not product.price_with_discount() %}
+                    <p class="price">Цена: {{ product.price }} руб.</p>
+                    {% else %}
+                    <span class="discount-tag">- {{ product.discount }}%</span>
+                    <p class="price">
+                        <span class="old-price">Обычная цена: {{ product.price }} руб.</span>
+                        <br>
+                        <span class="new-price">Цена со скидкой: {{ product.price_with_discount() }} руб.</span>
+                    </p>
+                    {% endif %}
+                    {% if user_id %}
+                    <form action="/add_to_cart/{{ session_id }}/{{ user_id }}/{{ product.id }}" method="post">
+                        <button type="submit" value="1" class="dropbtn">Добавить в корзину</button>
+                    </form>
+                    {% else %}
+                    <form action="/reg_and_auth_page" method="get">
+                        <button type="submit" class="dropbtn">Добавить в корзину</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            {% for product in split_products_lists[page_number] %}
+                <div class="product-card">
+                    <div class="product-image">
+                        {% if user_id %}
+                        <a href="/product_details/{{ session_id }}/{{ user_id }}/{{ product.id }}/">
+                            <img src="{{ product.img_path }}" alt="Фотография товара">
+                        </a>
+                        {% else %}
+                        <a href="/product_details/{{ product.id }}/">
+                            <img src="{{ product.img_path }}" alt="Фотография товара">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">{{ product.name }}</h3>
+                        {% if not product.price_with_discount() %}
+                        <p class="price">Цена: {{ product.price }} руб.</p>
+                        {% else %}
+                        <span class="discount-tag">- {{ product.discount }}%</span>
+                        <p class="price">
+                            <span class="old-price">Обычная цена: {{ product.price }} руб.</span>
+                            <br>
+                            <span class="new-price">Цена со скидкой: {{ product.price_with_discount() }} руб.</span>
+                        </p>
+                        {% endif %}
+                        {% if user_id %}
+                        <form action="/add_to_cart/{{ session_id }}/{{ user_id }}/{{ product.id }}" method="post">
+                            <button type="submit" value="1" class="dropbtn">Добавить в корзину</button>
+                        </form>
+                        {% else %}
+                        <form action="/reg_and_auth_page" method="get">
+                            <button type="submit" class="dropbtn">Добавить в корзину</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="item break"></div>
+
+    {% if split_products_lists %}
+        <div>
+            <span>Навигация по страницам:</span>
+            {% for page in available_pages %}
+                {% if page == 0 %}
+                <a href="#">Начало</a>
+                {% else %}
+                <a href="/catalog/paginator/{{ products_per_page }}/{{ page }}/{{ gender }}/">{{ page }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>
 {% endblock %}

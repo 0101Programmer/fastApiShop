@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Добавлена возможность настроить перенос элементов в шаблоне">
+    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Обновлена функция для создания вложенных списков для пагинатора">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages_directory/catalog_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/catalog_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages_directory/tools_for_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/tools_for_pages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/catalog_by_gender_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_by_gender_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/catalog_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/catalog_paginator_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_paginator_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
@@ -255,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735988317100</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Обновлена функция для создания вложенных списков для пагинатора">
+      <option name="closed" value="true" />
+      <created>1735992503916</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1735992503916</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,21 +293,7 @@
     <MESSAGE value="Отредактирована стилизация карточек, чтобы класс product list оборачивал только 3 и более карточек" />
     <MESSAGE value="Добавлена пагинация страниц в каталоге" />
     <MESSAGE value="Добавлена возможность настроить перенос элементов в шаблоне" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлена возможность настроить перенос элементов в шаблоне" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>6</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Обновлена функция для создания вложенных списков для пагинатора" />
+    <option name="LAST_COMMIT_MESSAGE" value="Обновлена функция для создания вложенных списков для пагинатора" />
   </component>
 </project>

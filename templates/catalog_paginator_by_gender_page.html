@@ -92,12 +92,13 @@
         <span>Навигация по страницам:</span>
         {% for page in available_pages %}
             {% if page == 0 %}
-            <a href="/catalog/">Начало</a>
+            <a href="/catalog_filter_by_gender/{{ gender }}/">Начало</a>
             {% else %}
-            <a href="/catalog/paginator/{{ products_per_page }}/{{ page }}/">{{ page }}</a>
+            <a href="/catalog/paginator/{{ products_per_page }}/{{ page }}/{{ gender }}/">{{ page }}</a>
             {% endif %}
         {% endfor %}
     </div>
 
 </div>
+
 {% endblock %}

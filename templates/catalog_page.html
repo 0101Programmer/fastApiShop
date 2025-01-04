@@ -125,17 +125,22 @@
             {% endfor %}
         {% endif %}
     </div>
+
     <div class="item break"></div>
+
     {% if split_products_lists %}
+    <div>
         <span>Навигация по страницам:</span>
         {% for page in available_pages %}
             {% if page == 0 %}
-            <a href="/catalog/">Начало</a>
+            <a href="#">Начало</a>
             {% else %}
             <a href="/catalog/paginator/{{ products_per_page }}/{{ page }}/">{{ page }}</a>
             {% endif %}
         {% endfor %}
+    </div>
     {% endif %}
+
 </div>
 
 {% endblock %}
