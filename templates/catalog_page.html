@@ -43,7 +43,9 @@
         </div>
     </div>
     {% endif %}
-    <div class="item break">------ПЕРЕНОС------</div>
+
+    <div class="item break"></div>
+
     <div class="product-list">
         {% if not split_products_lists %}
             {% for product in all_products %}
@@ -123,7 +125,7 @@
             {% endfor %}
         {% endif %}
     </div>
-    <div class="item break">------ПЕРЕНОС------</div>
+    <div class="item break"></div>
     {% if split_products_lists %}
         <span>Навигация по страницам:</span>
         {% for page in available_pages %}
