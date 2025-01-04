@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Отредактирована стилизация карточек">
+    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Отредактирована стилизация карточек, чтобы класс product list оборачивал только 3 и более карточек">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages_directory/catalog_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/catalog_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles_css/catalog_filter_buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles_css/catalog_filter_buttons_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles_css/product_card_style_v2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles_css/product_card_style_v2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/catalog_by_gender_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_by_gender_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/catalog_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +223,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735970293038</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Отредактирована стилизация карточек, чтобы класс product list оборачивал только 3 и более карточек">
+      <option name="closed" value="true" />
+      <created>1735972906401</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1735972906401</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Отредактирована стилизация карточек, чтобы класс product list оборачивал только 3 и более карточек">
+      <option name="closed" value="true" />
+      <created>1735972911574</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1735972911574</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,6 +266,7 @@
     <MESSAGE value="Отредактированы CRUD запросы по продукту, добавлена страница каталога и ф-ция для начала создания пагинатора" />
     <MESSAGE value="Отредактированы CRUD запросы, добавлено отображение карточек товаров" />
     <MESSAGE value="Отредактирована стилизация карточек" />
-    <option name="LAST_COMMIT_MESSAGE" value="Отредактирована стилизация карточек" />
+    <MESSAGE value="Отредактирована стилизация карточек, чтобы класс product list оборачивал только 3 и более карточек" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отредактирована стилизация карточек, чтобы класс product list оборачивал только 3 и более карточек" />
   </component>
 </project>

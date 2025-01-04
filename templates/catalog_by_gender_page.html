@@ -53,7 +53,6 @@
 </div>
 {% endif %}
 
-{% if len_filtered_products > 3 %}
 <div class="product-list">
     {% for product in filtered_products %}
     <div class="product-card">
@@ -93,44 +92,5 @@
     </div>
     {% endfor %}
 </div>
-{% else %}
-{% for product in filtered_products %}
-    <div class="product-card-single">
-        <div class="product-image-single">
-            {% if user_id %}
-            <a href="/product_details/{{ session_id }}/{{ user_id }}/{{ product.id }}/">
-                <img src="{{ product.img_path }}" alt="Фотография товара">
-            </a>
-            {% else %}
-            <a href="/product_details/{{ product.id }}/">
-                <img src="{{ product.img_path }}" alt="Фотография товара">
-            </a>
-            {% endif %}
-        </div>
-        <div class="product-info-single">
-            <h3 class="product-name-single">{{ product.name }}</h3>
-            {% if not product.price_with_discount() %}
-            <p class="price-single">Цена: {{ product.price }} руб.</p>
-            {% else %}
-            <span class="discount-tag-single">- {{ product.discount }}%</span>
-            <p class="price">
-                <span class="old-price-single">Обычная цена: {{ product.price }} руб.</span>
-                <br>
-                <span class="new-price-single">Цена со скидкой: {{ product.price_with_discount() }} руб.</span>
-            </p>
-            {% endif %}
-            {% if user_id %}
-            <form action="/add_to_cart/{{ session_id }}/{{ user_id }}/{{ product.id }}" method="post">
-                <button type="submit" value="1" class="dropbtn">Добавить в корзину</button>
-            </form>
-            {% else %}
-            <form action="/reg_and_auth_page" method="get">
-                <button type="submit" class="dropbtn">Добавить в корзину</button>
-            </form>
-            {% endif %}
-        </div>
-    </div>
-{% endfor %}
-{% endif %}
 
 {% endblock %}
