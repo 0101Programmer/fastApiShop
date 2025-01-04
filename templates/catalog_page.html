@@ -20,7 +20,6 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', path='styles_css/catalog_filter_buttons_style.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', path='styles_css/product_cards_style.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', path='styles_css/product_card_style_v2.css') }}">
 
 
@@ -29,8 +28,8 @@
     <button class="dropbtn">Категории</button>
     <div class="dropdown-content">
         <a href="#">Все</a>
-        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/man">Мужские</a>
-        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/woman">Женские</a>
+        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/male">Мужские</a>
+        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/female">Женские</a>
     </div>
 </div>
 {% else %}
@@ -38,8 +37,8 @@
     <button class="dropbtn">Категории</button>
     <div class="dropdown-content">
         <a href="#">Все</a>
-        <a href="/catalog_filter_by_gender/man">Мужские</a>
-        <a href="/catalog_filter_by_gender/woman">Женские</a>
+        <a href="/catalog_filter_by_gender/male">Мужские</a>
+        <a href="/catalog_filter_by_gender/female">Женские</a>
     </div>
 </div>
 {% endif %}

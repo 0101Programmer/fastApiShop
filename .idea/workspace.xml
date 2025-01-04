@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Отредактированы CRUD запросы, добавлено отображение карточек товаров">
+    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Отредактирована стилизация карточек">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles_css/product_card_style_v2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles_css/product_card_style_v2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages_directory/catalog_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/catalog_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/catalog_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,10 +43,13 @@
     "Python.test.executor": "Run",
     "Python.tools_for_pages.executor": "Run",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/vavan/PythonProjectsUrban/pet_projects/fastApiSneakersShopPetProject"
+    "last_opened_file_path": "C:/Users/vavan/PythonProjectsUrban/pet_projects/fastApiSneakersShopPetProject/templates"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\static\media\catalog_images\adidas" />
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\crud_directory" />
@@ -209,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735965393897</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Отредактирована стилизация карточек">
+      <option name="closed" value="true" />
+      <created>1735970293038</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1735970293038</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,6 +247,7 @@
     <MESSAGE value="Появилась возможность выйти из аккаунта" />
     <MESSAGE value="Отредактированы CRUD запросы по продукту, добавлена страница каталога и ф-ция для начала создания пагинатора" />
     <MESSAGE value="Отредактированы CRUD запросы, добавлено отображение карточек товаров" />
-    <option name="LAST_COMMIT_MESSAGE" value="Отредактированы CRUD запросы, добавлено отображение карточек товаров" />
+    <MESSAGE value="Отредактирована стилизация карточек" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отредактирована стилизация карточек" />
   </component>
 </project>
