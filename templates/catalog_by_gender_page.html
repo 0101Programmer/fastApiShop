@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar">
+    <a href="#" class="logo">
+        <img src="https://img.icons8.com/?size=100&id=icaN75Fl2Ka2&format=png&color=000000" width="30" height="30" style="margin:-4px;" alt="Логотип">
+    </a>
+    {% if user_id %}
+    <a href="/home_by_id/{{ session_id }}/{{ user_id }}">Главная</a>
+    {% else %}
+    <a href="/">Главная</a>
+    {% endif %}
+    <a href="#">Каталог</a>
+</nav>
+{% endblock %}
+
+{% block header %}
+<h1>Каталог</h1>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/catalog_filter_buttons_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/product_card_style_v2.css') }}">
+
+
+{% if user_id %}
+<div class="dropdown">
+    <button class="dropbtn">Категории</button>
+    <div class="dropdown-content">
+        <a href="/catalog/{session_id}/{user_id}/">Все</a>
+        {% if gender == "male"%}
+        <a href="#">Мужские</a>
+        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/female">Женские</a>
+        {% else %}
+        <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/male">Мужские</a>
+        <a href="#">Женские</a>
+        {% endif %}
+    </div>
+</div>
+{% else %}
+<div class="dropdown">
+    <button class="dropbtn">Категории</button>
+    <div class="dropdown-content">
+        <a href="/catalog/">Все</a>
+        {% if gender == "male"%}
+        <a href="#">Мужские</a>
+        <a href="/catalog_filter_by_gender/female">Женские</a>
+        {% else %}
+        <a href="/catalog_filter_by_gender/male">Мужские</a>
+        <a href="#">Женские</a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+{% if len_filtered_products > 3 %}
+<div class="product-list">
+    {% for product in filtered_products %}
+    <div class="product-card">
+        <div class="product-image">
+            {% if user_id %}
+            <a href="/product_details/{{ session_id }}/{{ user_id }}/{{ product.id }}/">
+                <img src="{{ product.img_path }}" alt="Фотография товара">
+            </a>
+            {% else %}
+            <a href="/product_details/{{ product.id }}/">
+                <img src="{{ product.img_path }}" alt="Фотография товара">
+            </a>
+            {% endif %}
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">{{ product.name }}</h3>
+            {% if not product.price_with_discount() %}
+            <p class="price">Цена: {{ product.price }} руб.</p>
+            {% else %}
+            <span class="discount-tag">- {{ product.discount }}%</span>
+            <p class="price">
+                <span class="old-price">Обычная цена: {{ product.price }} руб.</span>
+                <br>
+                <span class="new-price">Цена со скидкой: {{ product.price_with_discount() }} руб.</span>
+            </p>
+            {% endif %}
+            {% if user_id %}
+            <form action="/add_to_cart/{{ session_id }}/{{ user_id }}/{{ product.id }}" method="post">
+                <button type="submit" value="1" class="dropbtn">Добавить в корзину</button>
+            </form>
+            {% else %}
+            <form action="/reg_and_auth_page" method="get">
+                <button type="submit" class="dropbtn">Добавить в корзину</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+{% for product in filtered_products %}
+    <div class="product-card-single">
+        <div class="product-image-single">
+            {% if user_id %}
+            <a href="/product_details/{{ session_id }}/{{ user_id }}/{{ product.id }}/">
+                <img src="{{ product.img_path }}" alt="Фотография товара">
+            </a>
+            {% else %}
+            <a href="/product_details/{{ product.id }}/">
+                <img src="{{ product.img_path }}" alt="Фотография товара">
+            </a>
+            {% endif %}
+        </div>
+        <div class="product-info-single">
+            <h3 class="product-name-single">{{ product.name }}</h3>
+            {% if not product.price_with_discount() %}
+            <p class="price-single">Цена: {{ product.price }} руб.</p>
+            {% else %}
+            <span class="discount-tag-single">- {{ product.discount }}%</span>
+            <p class="price">
+                <span class="old-price-single">Обычная цена: {{ product.price }} руб.</span>
+                <br>
+                <span class="new-price-single">Цена со скидкой: {{ product.price_with_discount() }} руб.</span>
+            </p>
+            {% endif %}
+            {% if user_id %}
+            <form action="/add_to_cart/{{ session_id }}/{{ user_id }}/{{ product.id }}" method="post">
+                <button type="submit" value="1" class="dropbtn">Добавить в корзину</button>
+            </form>
+            {% else %}
+            <form action="/reg_and_auth_page" method="get">
+                <button type="submit" class="dropbtn">Добавить в корзину</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
