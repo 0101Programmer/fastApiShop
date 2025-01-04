@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Отредактированы CRUD запросы по продукту, добавлена страница каталога и ф-ция для начала создания пагинатора">
+    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Отредактированы CRUD запросы, добавлено отображение карточек товаров">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud_directory/product_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_directory/product_crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud_directory/user_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_directory/user_crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_directory/db_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_directory/db_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles_css/product_card_style_v2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles_css/product_card_style_v2.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/catalog_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735838745678</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Отредактированы CRUD запросы, добавлено отображение карточек товаров">
+      <option name="closed" value="true" />
+      <created>1735965393897</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1735965393897</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,6 +234,7 @@
     <MESSAGE value="Переделана проверка на то, чтобы пользователь мог получить доступ только по своему id после авторизации или регистрации. Добавлено изменение личный данных" />
     <MESSAGE value="Появилась возможность выйти из аккаунта" />
     <MESSAGE value="Отредактированы CRUD запросы по продукту, добавлена страница каталога и ф-ция для начала создания пагинатора" />
-    <option name="LAST_COMMIT_MESSAGE" value="Отредактированы CRUD запросы по продукту, добавлена страница каталога и ф-ция для начала создания пагинатора" />
+    <MESSAGE value="Отредактированы CRUD запросы, добавлено отображение карточек товаров" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отредактированы CRUD запросы, добавлено отображение карточек товаров" />
   </component>
 </project>

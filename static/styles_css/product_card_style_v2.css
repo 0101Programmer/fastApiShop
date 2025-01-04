@@ -1,5 +1,11 @@
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .product-card {
-    width: 300px;
+    width: calc((100% / 3) - 15px);
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 20px;
@@ -9,7 +15,7 @@
 }
 
 .product-image {
-    height: 250px;
+    height: 200px;
     overflow: hidden;
 }
 
