@@ -12,7 +12,7 @@ templates = Jinja2Templates(directory="templates")
 @catalog_route.get("/catalog/", response_class=HTMLResponse)
 async def catalog_get(request: Request):
     split_products_lists = None
-    products_per_page = 6
+    products_per_page = 8
     page_number = 0
     available_pages = []
 
