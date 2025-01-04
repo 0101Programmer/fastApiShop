@@ -25,9 +25,11 @@ class Product(Model):
     name = tortoise.fields.CharField(max_length=100)
     description = tortoise.fields.TextField()
     price = tortoise.fields.FloatField()
+    discount = tortoise.fields.IntField()
     in_stock = tortoise.fields.IntField()
     gender = tortoise.fields.CharField(max_length=100)
     sizes_in_stock = tortoise.fields.JSONField()
+    ratings = tortoise.fields.JSONField(null=True)
     img_path = tortoise.fields.CharField(max_length=200)
 
     def __str__(self):
@@ -35,3 +37,9 @@ class Product(Model):
 
     def __repr__(self):
         return f'Product id: {self.id}, product name: {self.name}'
+
+    def price_with_discount(self):
+        if self.discount != 0:
+            return round(self.price - (self.price * (self.discount / 100)))
+        else:
+            return None

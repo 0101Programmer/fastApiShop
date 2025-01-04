@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Появилась возможность выйти из аккаунта">
+    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Отредактированы CRUD запросы по продукту, добавлена страница каталога и ф-ция для начала создания пагинатора">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud_directory/product_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_directory/product_crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud_directory/user_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_directory/user_crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_directory/db_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_directory/db_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages_directory/catalog_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/catalog_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages_directory/tools_for_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/tools_for_pages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/catalog_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,11 +50,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\static\media\catalog_images\adidas" />
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\crud_directory" />
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\static\media\logos" />
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\static\media\icons" />
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\static\styles_css" />
-      <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\static" />
     </key>
   </component>
   <component name="RunManager">
@@ -198,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735752480523</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Отредактированы CRUD запросы по продукту, добавлена страница каталога и ф-ция для начала создания пагинатора">
+      <option name="closed" value="true" />
+      <created>1735838745678</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1735838745678</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,27 +228,7 @@
     <MESSAGE value="Добавлена проверка соответствия id сессии и id пользователя через fastsession, чтобы пользователи не могли получить доступ к странице другого пользователя через изменение id в адресной строке" />
     <MESSAGE value="Переделана проверка на то, чтобы пользователь мог получить доступ только по своему id после авторизации или регистрации. Добавлено изменение личный данных" />
     <MESSAGE value="Появилась возможность выйти из аккаунта" />
-    <option name="LAST_COMMIT_MESSAGE" value="Появилась возможность выйти из аккаунта" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>14</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Отредактированы CRUD запросы по продукту, добавлена страница каталога и ф-ция для начала создания пагинатора" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отредактированы CRUD запросы по продукту, добавлена страница каталога и ф-ция для начала создания пагинатора" />
   </component>
 </project>
