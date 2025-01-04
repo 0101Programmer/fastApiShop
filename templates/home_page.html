@@ -8,7 +8,7 @@
   {% if user_id %}
   <a href="#">Главная</a>
   <a href="#">О нас</a>
-  <a href="/catalog/{session_id}/{user_id}/">Каталог</a>
+  <a href="/catalog/{{ session_id }}/{{ user_id }}/">Каталог</a>
   <a href="/personal_account/{{ session_id }}/{{ user_id }}">Личный кабинет</a>
   {% else %}
   <a href="#">Главная</a>

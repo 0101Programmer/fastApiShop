@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Обновлена функция для создания вложенных списков для пагинатора">
+    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Пагинация добавлена на отфильтрованные страницы">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages_directory/catalog_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/catalog_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages_directory/product_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/product_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/catalog_by_gender_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_by_gender_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/catalog_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/catalog_paginator_by_gender_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_paginator_by_gender_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/catalog_paginator_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_paginator_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +40,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.db_schemas_creation.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.tools_for_pages.executor": "Run",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/vavan/PythonProjectsUrban/pet_projects/fastApiSneakersShopPetProject/templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.db_schemas_creation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tools_for_pages.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vavan/PythonProjectsUrban/pet_projects/fastApiSneakersShopPetProject/templates&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\templates" />
@@ -60,7 +63,7 @@
       <recent name="C:\Users\vavan\PythonProjectsUrban\pet_projects\fastApiSneakersShopPetProject\static\styles_css" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="db_schemas_creation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fastApiSneakersShopPetProject" />
       <option name="ENV_FILES" value="" />
@@ -263,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735992503916</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Пагинация добавлена на отфильтрованные страницы">
+      <option name="closed" value="true" />
+      <created>1735995580888</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1735995580888</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -294,6 +305,7 @@
     <MESSAGE value="Добавлена пагинация страниц в каталоге" />
     <MESSAGE value="Добавлена возможность настроить перенос элементов в шаблоне" />
     <MESSAGE value="Обновлена функция для создания вложенных списков для пагинатора" />
-    <option name="LAST_COMMIT_MESSAGE" value="Обновлена функция для создания вложенных списков для пагинатора" />
+    <MESSAGE value="Пагинация добавлена на отфильтрованные страницы" />
+    <option name="LAST_COMMIT_MESSAGE" value="Пагинация добавлена на отфильтрованные страницы" />
   </component>
 </project>

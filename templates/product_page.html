@@ -21,5 +21,37 @@
 {% endblock %}
 
 {% block content %}
-{{ product_by_id }}
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/submit_button1_style.css') }}">
+
+<figure>
+    <img src="{{ product_by_id.img_path }}" alt="Фото товара" width="35%">
+    <figcaption>
+        <p>
+            <strong>Модель:<br></strong>
+            {{ product_by_id.name }}
+        </p>
+        <p>
+            <strong>Описание:<br></strong>
+            {{ product_by_id.description }}
+        </p>
+        <p>
+            <strong>Цена:<br></strong>
+            {{ product_by_id.price }}
+        </p>
+       {% if user_id %}
+        <form action="/product_details/{session_id}/{user_id}/{product_id}/" method="post">
+            <p>
+                <strong>Количество:<br></strong>
+                <input name="product_amount" type="number" min="0" max="10" style="height: 30px; font-size: 16px;" required />
+            </p>
+            <br>
+            <input type="submit" value="В корзину" />
+        </form>
+        {% else %}
+        <form action="/reg_and_auth_page" method="get">
+            <input type="submit" value="Личный кабинет" />
+        </form>
+        {% endif %}
+    </figcaption>
+</figure>
 {% endblock %}

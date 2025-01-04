@@ -29,8 +29,8 @@
         <button class="dropbtn">Категории</button>
         <div class="dropdown-content">
             <a href="#">Все</a>
-            <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/male">Мужские</a>
-            <a href="/catalog_filter_by_gender/{{ session_id }}/{{ user_id }}/female">Женские</a>
+            <a href="/catalog/{{ session_id }}/{{ user_id }}/catalog_filter_by_gender/male/">Мужские</a>
+            <a href="/catalog/{{ session_id }}/{{ user_id }}/catalog_filter_by_gender/female/">Женские</a>
         </div>
     </div>
     {% else %}
@@ -128,17 +128,32 @@
 
     <div class="item break"></div>
 
-    {% if split_products_lists %}
-    <div>
-        <span>Навигация по страницам:</span>
-        {% for page in available_pages %}
-            {% if page == 0 %}
-            <a href="#">Начало</a>
-            {% else %}
-            <a href="/catalog/paginator/{{ products_per_page }}/{{ page }}/">{{ page }}</a>
-            {% endif %}
-        {% endfor %}
-    </div>
+    {% if user_id %}
+        {% if split_products_lists %}
+        <div>
+            <span>Навигация по страницам:</span>
+            {% for page in available_pages %}
+                {% if page == 0 %}
+                <a href="#">Начало</a>
+                {% else %}
+                <a href="/catalog/{{ session_id }}/{{ user_id }}/paginator/{{ products_per_page }}/{{ page }}/">{{ page }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% else %}
+        {% if split_products_lists %}
+        <div>
+            <span>Навигация по страницам:</span>
+            {% for page in available_pages %}
+                {% if page == 0 %}
+                <a href="#">Начало</a>
+                {% else %}
+                <a href="/catalog/paginator/{{ products_per_page }}/{{ page }}/">{{ page }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
     {% endif %}
 
 </div>

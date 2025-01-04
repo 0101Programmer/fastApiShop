@@ -1,0 +1,16 @@
+input[type="submit"] {
+    background-color: #ffa500; /* Оранжевый цвет */
+    color: white;              /* Белый текст */
+    border: none;              /* Убираем рамку */
+    padding: 10px 20px;        /* Паддинг внутри кнопки */
+    text-align: center;        /* Центрирование текста */
+    font-size: 16px;           /* Размер шрифта */
+    cursor: pointer;           /* Курсор в виде руки при наведении */
+    transition: all 0.3s ease; /* Анимация при наведении */
+}
+
+/* Изменение цвета фона и текста при наведении курсора */
+input[type="submit"]:hover {
+    background-color: #e67e22; /* Темнее оттенок оранжевого */
+    color: white;
+}
