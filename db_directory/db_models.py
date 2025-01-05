@@ -43,3 +43,6 @@ class Product(Model):
             return round(self.price - (self.price * (self.discount / 100)))
         else:
             return None
+
+    def in_stock_counter(self):
+        return sum(self.sizes_in_stock.values())

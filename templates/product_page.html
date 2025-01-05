@@ -22,36 +22,78 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', path='styles_css/submit_button1_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/product_page_card_style.css') }}">
 
-<figure>
-    <img src="{{ product_by_id.img_path }}" alt="Фото товара" width="35%">
-    <figcaption>
-        <p>
-            <strong>Модель:<br></strong>
-            {{ product_by_id.name }}
-        </p>
-        <p>
-            <strong>Описание:<br></strong>
-            {{ product_by_id.description }}
-        </p>
-        <p>
-            <strong>Цена:<br></strong>
-            {{ product_by_id.price }}
-        </p>
-       {% if user_id %}
-        <form action="/product_details/{{ session_id }}/{{ user_id }}/{{ product_id }}/" method="post">
-            <p>
-                <strong>Количество:<br></strong>
-                <input name="product_amount" type="number" min="0" max="10" style="height: 30px; font-size: 16px;" required />
-            </p>
-            <br>
-            <input type="submit" value="В корзину" />
-        </form>
+<div class="card">
+    <img src="{{ product_by_id.img_path }}" alt="Avatar" style="width:100%">
+    <div class="container">
+        <h4><b>{{ product_by_id.name }}</b></h4>
+        {% if product_by_id.gender == "male" %}
+            <p>Мужская модель.</p>
+        {% elif product_by_id.gender == "female" %}
+            <p>Женская модель.</p>
         {% else %}
-        <form action="/reg_and_auth_page" method="get">
-            <input type="submit" value="Личный кабинет" />
-        </form>
+            <p>Унисекс модель.</p>
         {% endif %}
-    </figcaption>
-</figure>
+        {% if user_id %}
+            {% if product_by_id.in_stock_counter() != 0 %}
+                <form action="/product_details/{{ session_id }}/{{ user_id }}/{{ product_id }}/" method="post">
+                    <p>
+                        <strong>Количество:<br></strong>
+                        <input name="product_amount" type="number" min="0" max="{{ product_by_id.in_stock_counter() }}" style="height: 30px; font-size: 16px;" required />
+                    </p>
+                    <p>
+                        <strong>Размер:<br></strong>
+                        {% if product_by_id.sizes_in_stock["S"] > 0 %}
+                            <input type="radio" name="product_size" value="S" required>S
+                        {% endif %}
+                        {% if product_by_id.sizes_in_stock["M"] > 0 %}
+                            <input type="radio" name="product_size" value="M">M
+                        {% endif %}
+                        {% if product_by_id.sizes_in_stock["L"] > 0 %}
+                            <input type="radio" name="product_size" value="L">L
+                        {% endif %}
+                    </p>
+                    {% if product_by_id.price_with_discount() %}
+                        <input type="hidden" name="product_price" value="{{ product_by_id.price_with_discount() }}">
+                    {% else %}
+                        <input type="hidden" name="product_price" value="{{ product_by_id.price }}">
+                    {% endif %}
+                    <input type="submit" value="В корзину" />
+                </form>
+            {% else %}
+                <p><em>К сожалению, товар закончился</em></p>
+            {% endif %}
+        {% else %}
+            <form action="/reg_and_auth_page" method="get">
+                <input type="submit" value="Личный кабинет" />
+            </form>
+        {% endif %}
+        <br>
+    </div>
+</div>
+
+<div>
+    <p>
+        <strong>Описание:<br></strong>
+        {{ product_by_id.description }}
+    </p>
+    <p>
+        <strong>Цена:<br></strong>
+        {% if product_by_id.price_with_discount() %}
+            {{ product_by_id.price_with_discount() }} руб.
+        {% else %}
+            {{ product_by_id.price }} руб.
+        {% endif %}
+    </p>
+    {% if product_by_id.in_stock_counter() != 0 %}
+        <p>
+            <strong>Размеры в наличии:<br></strong>
+            {% for k, v in product_by_id.sizes_in_stock.items() %}
+                {{ k }}: {{ v }}<br>
+            {% endfor %}
+        </p>
+    {% endif %}
+</div>
+
 {% endblock %}
