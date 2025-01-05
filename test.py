@@ -1,3 +1,4 @@
-dict_ = {"S": 1, "L": 4, "P": 10}
+import datetime
 
-print(sum(dict_.values()))
+upd_at = str(datetime.datetime.now())[:19]
+print(upd_at)

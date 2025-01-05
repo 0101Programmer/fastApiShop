@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar">
+    <a href="#" class="logo">
+        <img src="https://img.icons8.com/?size=100&id=icaN75Fl2Ka2&format=png&color=000000" width="30" height="30" style="margin:-4px;" alt="Логотип">
+    </a>
+    <a href="/home_by_id/{{ session_id }}/{{ user_id }}">Главная</a>
+    <a href="/personal_account/{{ session_id }}/{{ user_id }}">Личный кабинет</a>
+    <a href="#">Заказы</a>
+</nav>
+{% endblock %}
+
+{% block header %}
+<h1>Заказы</h1>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/user_data_table_style.css') }}">
+
+<table>
+    <thead>
+        <tr>
+            <th>Номер заказа</th>
+            <th>Название модели</th>
+            <th>Размер</th>
+            <th>Кол-во</th>
+            <th>Итого, руб.</th>
+            <th>Статус</th>
+            <th>Дата обновления<br>(по местному времени)</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for k, v in user_data.orders.items() %}
+        <tr>
+            <td>{{ k }}<br><a href="#">(редактировать)</a></td>
+            <td>{{ v["product_name"] }}</td>
+            <td>{{ v["product_size"] }}</td>
+            <td>{{ v["product_amount"] }}</td>
+            <td>{{ v["product_total"] }}</td>
+            {% if v["order_status"] == "ordered" %}
+                <td>Оформлен</td>
+            {% elif v["order_status"] == "confirmed" %}
+                <td>Оплачен</td>
+            {% else %}
+                <td>Отменён</td>
+            {% endif %}
+            <td>{{ v["upd_at"] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="100%">Мои заказы</td>
+        </tr>
+    </tfoot>
+</table>
+
+
+{% endblock %}

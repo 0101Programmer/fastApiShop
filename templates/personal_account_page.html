@@ -37,13 +37,17 @@
             <td><a href="/user_data_changing/{{ session_id }}/{{ user_id }}/password">Изменить или посмотреть пароль</a></td>
             <td>{{ user_data.birthdate }}</td>
             {% if user_data.orders %}
-            <td><a href="#">Изменить или посмотреть заказы</a></td>
+            <td><a href="/user_orders/{{ session_id }}/{{ user_id }}/">Изменить или посмотреть заказы</a></td>
             {% endif %}
         </tr>
     </tbody>
     <tfoot>
         <tr>
+            {% if user_data.orders %}
+            <td colspan="5">Личная информация</td>
+            {% else %}
             <td colspan="4">Личная информация</td>
+            {% endif %}
         </tr>
     </tfoot>
 </table>

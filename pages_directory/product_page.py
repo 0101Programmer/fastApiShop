@@ -1,3 +1,4 @@
+import datetime
 import json
 
 from fastapi import APIRouter, Form, status
@@ -49,12 +50,22 @@ async def product_by_self_and_user_id_post(request: Request, session_id: str, us
         user_for_check.orders = json.dumps(user_for_check.orders | {total_orders: {"product_id": product_id,
                                                                                    "product_price": product_price,
                                                                                    "product_size": product_size,
-                                                                                   "product_amount": product_amount}})
+                                                                                   "product_amount": product_amount,
+                                                                                   "product_total": product_amount * product_price,
+                                                                                   "product_name": product_by_id.name,
+                                                                                   "order_status": "ordered",
+                                                                                   "upd_at": str(datetime.datetime.now())[:19],
+                                                                                   }})
     else:
         user_for_check.orders = json.dumps({total_orders: {"product_id": product_id,
                                                            "product_price": product_price,
                                                            "product_size": product_size,
-                                                           "product_amount": product_amount}})
+                                                           "product_amount": product_amount,
+                                                           "product_total": product_amount * product_price,
+                                                           "product_name": product_by_id.name,
+                                                           "order_status": "ordered",
+                                                           "upd_at": str(datetime.datetime.now())[:19],
+                                                           }})
     await product_by_id.save()
     await user_for_check.save()
 

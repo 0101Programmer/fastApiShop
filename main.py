@@ -10,6 +10,7 @@ from pages_directory.personal_account_page import personal_account_route
 from pages_directory.product_page import product_page_route
 from pages_directory.reg_and_auth_page import reg_and_auth_route
 from pages_directory.user_data_changing_page import user_data_changing_route
+from pages_directory.user_orders_page import user_orders_route
 
 app = FastAPI(swagger_ui_parameters={"tryItOutEnabled": True}, debug=True)
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -22,6 +23,7 @@ app.include_router(reg_and_auth_route)
 app.include_router(personal_account_route)
 app.include_router(user_data_changing_route)
 app.include_router(product_page_route)
+app.include_router(user_orders_route)
 register_tortoise(
     app,
     db_url=f'asyncpg://{db_user}:{db_password}@127.0.0.1:5432/{db_name}',
