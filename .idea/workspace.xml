@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Доработан ф-ционал по оформлению, оплате и отмене заказов">
-      <change beforePath="$PROJECT_DIR$/templates/catalog_by_gender_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_by_gender_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/catalog_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/catalog_paginator_by_gender_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_paginator_by_gender_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/catalog_paginator_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog_paginator_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Обновлены ссылки на оформление заказа">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages_directory/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/home_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -310,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736081435183</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Обновлены ссылки на оформление заказа">
+      <option name="closed" value="true" />
+      <created>1736081999865</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1736081999865</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,6 +354,7 @@
     <MESSAGE value="Отредактирован CRUD по продукту, теперь остаток товара считается автоматически по оставшимся размерам, добавлена реализация оформления заказа" />
     <MESSAGE value="Добавлена страница для отображения заказов" />
     <MESSAGE value="Доработан ф-ционал по оформлению, оплате и отмене заказов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Доработан ф-ционал по оформлению, оплате и отмене заказов" />
+    <MESSAGE value="Обновлены ссылки на оформление заказа" />
+    <option name="LAST_COMMIT_MESSAGE" value="Обновлены ссылки на оформление заказа" />
   </component>
 </project>

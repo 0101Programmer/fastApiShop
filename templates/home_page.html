@@ -7,12 +7,12 @@
   </a>
   {% if user_id %}
   <a href="#">Главная</a>
-  <a href="#">О нас</a>
+  <a href="/contacts_by_id/{{ session_id }}/{{ user_id }}">О нас</a>
   <a href="/catalog/{{ session_id }}/{{ user_id }}/">Каталог</a>
   <a href="/personal_account/{{ session_id }}/{{ user_id }}">Личный кабинет</a>
   {% else %}
   <a href="#">Главная</a>
-  <a href="#">О нас</a>
+  <a href="/contacts/">О нас</a>
   <a href="/catalog/">Каталог</a>
   <a href="/reg_and_auth_page">Регистрация и авторизация</a>
   {% endif %}
@@ -20,9 +20,11 @@
 {% endblock %}
 
 {% block header %}
-<h1>Главная страница</h1>
+<h1>Welcome to the <em>"Panda Shop"</em></h1>
 {% endblock %}
 
 {% block content %}
-<p>Базовый контент</p>
+<img src="https://media.giphy.com/media/Z0qrajAVaSJcK87b9X/giphy.gif?cid=ecf05e47229ta6t9eqqymq0g315mut20rg2upgsvebxgpuhv&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="361" height="480" alt="giphy">
+<img src="https://media.giphy.com/media/l1BgQyDWiGOJ7kuo8/giphy.gif?cid=ecf05e47gz9dqv4j1w23o23fi7j9zo9g3xjg5x3k91ufc1g9&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="700" height="480" alt="giphy">
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGtlamNncGFoZzBhbnd3bWI5azIyOW1mdzR0dTU3ODU3bTN3a251MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/P92TOPA81LKuRSeRHD/giphy.gif" width="361" height="480" alt="giphy">
 {% endblock %}
