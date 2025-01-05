@@ -73,12 +73,12 @@
                     </p>
                     {% endif %}
                     {% if user_id %}
-                    <form action="/add_to_cart/{{ session_id }}/{{ user_id }}/{{ product.id }}" method="post">
-                        <button type="submit" value="1" class="dropbtn">Добавить в корзину</button>
+                    <form action="/product_details/{{ session_id }}/{{ user_id }}/{{ product.id }}/" method="get">
+                        <button type="submit" class="dropbtn">Заказать</button>
                     </form>
                     {% else %}
                     <form action="/reg_and_auth_page" method="get">
-                        <button type="submit" class="dropbtn">Добавить в корзину</button>
+                        <button type="submit" class="dropbtn">Заказать</button>
                     </form>
                     {% endif %}
                 </div>
