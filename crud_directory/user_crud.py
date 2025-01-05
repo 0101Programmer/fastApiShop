@@ -1,3 +1,5 @@
+import json
+
 from fastapi import APIRouter
 from fastapi import Form
 from db_directory.db_models import User
@@ -25,12 +27,19 @@ async def add_user(name: str = Form(), email: str = Form(), password: str = Form
 
 
 @user_crud_rout.put("/update_user/", tags=["User CRUD"])
-async def update_user(user_id: int = Form(), name: str = Form(), email: str = Form(), password: str = Form(), birthdate: str = Form()):
+async def update_user(user_id: int = Form(), name: str = Form(), email: str = Form(), password: str = Form(),
+                      birthdate: str = Form(), orders: str = Form()):
     user = await User.get(id=user_id)
-    user.name = name
-    user.email = email
-    user.password = password
-    user.birthdate = birthdate
+    user.name = name if name != 'string' else user.name
+    user.email = email if email != 'string' else user.email
+    user.password = password if password != 'string' else user.password
+    user.birthdate = birthdate if birthdate != 'string' else user.birthdate
+    if orders == 'string':
+        user.orders = user.orders
+    elif orders == 'None':
+        user.orders = json.dumps(None)
+    else:
+        user.orders = json.dumps(user.orders | orders)
     await user.save()
     return {"message": 'user updated'}
 
