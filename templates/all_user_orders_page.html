@@ -33,17 +33,17 @@
     <tbody>
     {% for k, v in user_data.orders.items() %}
         <tr>
-            <td>{{ k }}<br><a href="#">(редактировать)</a></td>
+            <td>{{ k }}</td>
             <td>{{ v["product_name"] }}</td>
             <td>{{ v["product_size"] }}</td>
             <td>{{ v["product_amount"] }}</td>
             <td>{{ v["product_total"] }}</td>
             {% if v["order_status"] == "ordered" %}
-                <td>Оформлен</td>
+                <td><a href="/user_orders/change_order_status/{{ session_id }}/{{ user_id }}/{{ k }}">Оформлен</a></td>
             {% elif v["order_status"] == "confirmed" %}
-                <td>Оплачен</td>
+                <td><a href="/user_orders/change_order_status/{{ session_id }}/{{ user_id }}/{{ k }}">Оплачен</a></td>
             {% else %}
-                <td>Отменён</td>
+                <td><a href="/user_orders/change_order_status/{{ session_id }}/{{ user_id }}/{{ k }}">Отменён</a></td>
             {% endif %}
             <td>{{ v["upd_at"] }}</td>
         </tr>

@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Отредактирован CRUD по продукту, теперь остаток товара считается автоматически по оставшимся размерам, добавлена реализация оформления заказа">
+    <list default="true" id="1bf8c995-a594-4fa0-9f41-64d4e8ead22b" name="Changes" comment="Добавлена страница для отображения заказов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages_directory/product_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/product_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personal_account_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personal_account_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages_directory/user_orders_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages_directory/user_orders_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/all_user_orders_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/all_user_orders_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736060131309</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Добавлена страница для отображения заказов">
+      <option name="closed" value="true" />
+      <created>1736069945824</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1736069945824</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -329,6 +335,7 @@
     <MESSAGE value="Добавление всех новых ф-ций для авторизованного пользователя" />
     <MESSAGE value="Отредактирован CRUD по пользователю, добавлена ф-ция оформления заказа" />
     <MESSAGE value="Отредактирован CRUD по продукту, теперь остаток товара считается автоматически по оставшимся размерам, добавлена реализация оформления заказа" />
-    <option name="LAST_COMMIT_MESSAGE" value="Отредактирован CRUD по продукту, теперь остаток товара считается автоматически по оставшимся размерам, добавлена реализация оформления заказа" />
+    <MESSAGE value="Добавлена страница для отображения заказов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлена страница для отображения заказов" />
   </component>
 </project>

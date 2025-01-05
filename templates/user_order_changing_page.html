@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar">
+    <a href="#" class="logo">
+        <img src="https://img.icons8.com/?size=100&id=icaN75Fl2Ka2&format=png&color=000000" width="30" height="30" style="margin:-4px;" alt="Логотип">
+    </a>
+    <a href="/home_by_id/{{ session_id }}/{{ user_id }}">Главная</a>
+    <a href="/personal_account/{{ session_id }}/{{ user_id }}">Личный кабинет</a>
+    <a href="/user_orders/{{ session_id }}/{{ user_id }}/">Заказы</a>
+    <a href="#">Изменение статуса заказа</a>
+</nav>
+{% endblock %}
+
+{% block header %}
+<h1>Изменение статуса заказа</h1>
+{% endblock %}
+
+{% block content %}
+{% if user_data.orders[order_id]["order_status"] == "ordered" %}
+    <form method="post">
+        <p>
+            Заказ №: {{ order_id }}
+        </p>
+        <p>
+            Статус: оформлен
+        </p>
+        <p>
+            Выберите действие:<br>
+            <input type="radio" name="new_order_status" value="confirm" checked required>Оплатить
+            <br>
+            <input type="radio" name="new_order_status" value="cancel">Отменить
+        </p>
+        <input type="submit" value="Подтвердить" />
+    </form>
+{% elif user_data.orders[order_id]["order_status"] == "canceled" %}
+    <form action="/product_details/{{ session_id }}/{{ user_id }}/{{ user_data.orders[order_id]['product_id'] }}/" method="get">
+        <p>
+            Заказ №: {{ order_id }}
+        </p>
+        <p>
+            Статус: отменён
+        </p>
+        <input type="submit" value="Повторить" />
+    </form>
+{% else %}
+    <div>
+        <p>
+            Заказ №: {{ order_id }}
+        </p>
+        <p>
+            Статус: оплачен
+        </p>
+        <p>
+            Если вы хотели отменить заказ, то после оплаты это возможно сделать только после получения
+        </p>
+    </div>
+{% endif %}
+
+{% endblock %}

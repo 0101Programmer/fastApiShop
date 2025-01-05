@@ -40,7 +40,7 @@
                 <form action="/product_details/{{ session_id }}/{{ user_id }}/{{ product_id }}/" method="post">
                     <p>
                         <strong>Количество:<br></strong>
-                        <input name="product_amount" type="number" min="0" max="{{ product_by_id.in_stock_counter() }}" style="height: 30px; font-size: 16px;" required />
+                        <input name="product_amount" type="number" min="1" max="{{ product_by_id.in_stock_counter() }}" style="height: 30px; font-size: 16px;" required />
                     </p>
                     <p>
                         <strong>Размер:<br></strong>
