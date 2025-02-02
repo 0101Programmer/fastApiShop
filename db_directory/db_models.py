@@ -26,7 +26,6 @@ class Product(Model):
     description = tortoise.fields.TextField()
     price = tortoise.fields.FloatField()
     discount = tortoise.fields.IntField()
-    in_stock = tortoise.fields.IntField()
     gender = tortoise.fields.CharField(max_length=100)
     sizes_in_stock = tortoise.fields.JSONField()
     ratings = tortoise.fields.JSONField(null=True)

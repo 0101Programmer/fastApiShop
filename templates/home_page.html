@@ -24,7 +24,56 @@
 {% endblock %}
 
 {% block content %}
-<img src="https://media.giphy.com/media/Z0qrajAVaSJcK87b9X/giphy.gif?cid=ecf05e47229ta6t9eqqymq0g315mut20rg2upgsvebxgpuhv&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="361" height="480" alt="giphy">
-<img src="https://media.giphy.com/media/l1BgQyDWiGOJ7kuo8/giphy.gif?cid=ecf05e47gz9dqv4j1w23o23fi7j9zo9g3xjg5x3k91ufc1g9&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="700" height="480" alt="giphy">
-<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGtlamNncGFoZzBhbnd3bWI5azIyOW1mdzR0dTU3ODU3bTN3a251MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/P92TOPA81LKuRSeRHD/giphy.gif" width="361" height="480" alt="giphy">
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/catalog_filter_buttons_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/product_card_style_v2.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', path='styles_css/flexbox_breaks_style.css') }}">
+
+<div class="container">
+    <h2 style="color: red;">Популярное сейчас:</h2>
+    <div class="product-list">
+        {% for product in products_box %}
+        <div class="product-card">
+            <div class="product-image">
+                {% if user_id %}
+                <a href="/product_details/{{ session_id }}/{{ user_id }}/{{ product.id }}/">
+                    <img src="{{ product.img_path }}" alt="Фотография товара">
+                </a>
+                {% else %}
+                <a href="/product_details/{{ product.id }}/">
+                    <img src="{{ product.img_path }}" alt="Фотография товара">
+                </a>
+                {% endif %}
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">{{ product.name }}</h3>
+                {% if not product.price_with_discount() %}
+                <p class="price">Цена: {{ product.price }} руб.</p>
+                {% else %}
+                <span class="discount-tag">- {{ product.discount }}%</span>
+                <p class="price">
+                    <span class="old-price">Обычная цена: {{ product.price }} руб.</span>
+                    <br>
+                    <span class="new-price">Цена со скидкой: {{ product.price_with_discount() }} руб.</span>
+                </p>
+                {% endif %}
+                {% if user_id %}
+                <form action="/product_details/{{ session_id }}/{{ user_id }}/{{ product.id }}/" method="get">
+                    <button type="submit" class="dropbtn">Заказать</button>
+                </form>
+                {% else %}
+                <form action="/reg_and_auth_page" method="get">
+                    <button type="submit" class="dropbtn">Заказать</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if user_id %}
+    <a href="/catalog/{{ session_id }}/{{ user_id }}/">Смотреть больше</a>
+    {% else %}
+    <a href="/catalog/">Смотреть больше</a>
+    {% endif %}
+</div>
+
 {% endblock %}

@@ -3,7 +3,7 @@ from fastapi import Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
-from db_directory.db_models import User
+from db_directory.db_models import User, Product
 
 home_route = APIRouter()
 templates = Jinja2Templates(directory="templates")
@@ -11,7 +11,13 @@ templates = Jinja2Templates(directory="templates")
 
 @home_route.get("/", response_class=HTMLResponse)
 async def home_get(request: Request):
-    return templates.TemplateResponse("home_page.html", {"request": request})
+    products_per_page = 8
+    products_box = []
+    products_with_discount = await Product.filter(discount__not_isnull=True)
+    for i in products_with_discount:
+        if len(products_box) < products_per_page:
+            products_box.append(i)
+    return templates.TemplateResponse("home_page.html", {"request": request, "products_box": products_box})
 
 
 @home_route.post("/", response_class=HTMLResponse)
